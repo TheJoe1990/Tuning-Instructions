@@ -9,7 +9,7 @@ Quick summary of what it does:
 - Optionally runs your fans during the soak to ensure the entire chamber heats.
 - shows a popup with Skip/Adjust/Cancel buttons in Mainsail/Fluidd/KlipperScreen.
 - Actually pauses the print queue for real during the soak (not just a delay), so cancel/resume behave properly.
-- Forces a re-home/re-level/mesh after the soak, since the bed will have moved as it heated up.
+- Forces a re-home/re-level/mesh after the soak, to ensure repeatable sensor-less homing values and z sensor behaviors, esp useful with inductive probes that are temp sensitive.  
 
 The only real gotcha: you have to double check your printer's actual renamed pause/resume macro names (`rename_existing` on your `[gcode_macro PAUSE]`/`[gcode_macro RESUME]`) before deploying, or the soak will run with no real pause protection and fail silently. Details are in the file.
 
