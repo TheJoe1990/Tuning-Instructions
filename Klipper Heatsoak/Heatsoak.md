@@ -13,3 +13,5 @@ Quick summary of what it does:
 
 The only real gotcha: you have to double check your printer's actual renamed pause/resume macro names (`rename_existing` on your `[gcode_macro PAUSE]`/`[gcode_macro RESUME]`) before deploying, or the soak will run with no real pause protection and fail silently. Details are in the file.
 
+Originally based on a macro from Contomo (SC.0164) on the Stealthchanger Discord's #user-projects channel — thank you! We've made a number of significant changes/additions since, but credit where it's due.
+
