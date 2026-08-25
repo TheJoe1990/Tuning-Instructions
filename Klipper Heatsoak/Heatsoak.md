@@ -15,7 +15,7 @@ Quick summary of what it does:
 
 The only real gotcha: you have to double check your printer's actual renamed pause/resume macro names (`rename_existing` on your `[gcode_macro PAUSE]`/`[gcode_macro RESUME]`) before deploying, or the soak will run with no real pause protection and fail silently. Details are in the file.
 
-Originally based on [Contomo's heatsoak macro](https://github.com/Contomo/klipper-questionable-macros/blob/main/macro-examples/interruptable_heatsoak_print_start.cfg) — thank you! We've made a number of significant changes/additions since, but credit where it's due.
+This started life as [Contomo's heatsoak macro](https://github.com/Contomo/klipper-questionable-macros/blob/main/macro-examples/interruptable_heatsoak_print_start.cfg) — big thanks to him for the original work. We've since built on it with a number of significant changes and additions.
 
 ### To do / future ideas
 - Port over the SV08 toolchanger's per-tool preheat logic (heat every tool the slicer requested during the soak, not just the active one).
