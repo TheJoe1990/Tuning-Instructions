@@ -1,0 +1,12 @@
+This is a universal, drop-in heatsoak macro for Klipper. It pauses the print for a bit before it actually starts printing, so the frame/bed can come up to temperature evenly before the nozzle starts laying down plastic. Been running this on several different printers (Voron, RatOS, Sovol, toolchanger, Neptune) so it should adapt to most setups.
+
+To use it, drop `Heatsoak_Universal.cfg` into your Klipper config folder and `[include]` it, then follow the setup steps in the comment block at the top of the file. Full feature list and changelog are in there too.
+
+Quick summary of what it does:
+- Figures out how long to soak based on the print time in the filename (falls back to a default if it can't find one).
+- Can wait on a chamber sensor if you have one, and skip the soak if the chamber's already warm enough.
+- Runs your fans during the soak, shows a popup with Skip/Adjust/Cancel buttons in Mainsail/Fluidd/KlipperScreen.
+- Actually pauses the print queue for real during the soak (not just a delay), so cancel/resume behave properly.
+- Forces a re-home/re-level/mesh after the soak, since the bed will have moved as it heated up.
+
+The only real gotcha: you have to double check your printer's actual renamed pause/resume macro names (`rename_existing` on your `[gcode_macro PAUSE]`/`[gcode_macro RESUME]`) before deploying, or the soak will run with no real pause protection and fail silently. Details are in the file.
