@@ -22,7 +22,7 @@ The next step is making sure the prime tower doesn't come apart while you are pr
 
 We found the supports were being thrown off of the build sheet so we halved the speed the supports were printed at.  You may need to tune these further, and if your supports are nice and short you may not need to touch this setting at all, but this worked for us.  
 
-And here is our final result!  I'm sure that this can be tuned to be even better, but I'm pretty jazzed at where we arrived for now. Mom did have to scrape some of the PETG off the model with her fingernail, but it all came away cleanly leaving no sags or rough areas.  
+And here is our final result!  I'm sure that this can be tuned to be even better, but I'm pretty jazzed at where we arrived for now. Mom did have to scrape some of the PETG off the model with her fingernail, but it all came away cleanly leaving minimal sags or rough areas.  
 
 Happy printing!
 
