@@ -1,4 +1,4 @@
-Please note that these instructions were writen mostly for my mom, for the current version of SnapMaker Orca fork in Augest of 2026 and Im sure things will change.  These steps are not exactly the same in Bambu or Mainline Orca, and are only recomended for nozzle changers at this time.  I recomend using dramatically different colors for your pla vs your petg.  Thank you.  
+Please note that these instructions were written mostly for my mom, for the current version of SnapMaker Orca fork in August of 2026 and I'm sure things will change.  These steps are not exactly the same in Bambu or Mainline Orca, and are only recommended for nozzle changers at this time.  I recommend using dramatically different colors for your PLA vs your PETG.  Thank you.  
 
 ![Selecting filaments](photos/Supports%20step%201.png)
 
@@ -12,20 +12,20 @@ Check the box for it being a support material (Not soluble material, that's diff
 
 ![Modified support profile](photos/Supports%20step%203.png)
 
-Make sure that it now shows your modified "Support" profile.  In our example that is filament 2, now our PETG Support, where I put the top red arrow.  Then select that same filament for the support raft interface, the lower red arrow.   If everything has worked correctly you will get the popup and be able to select yes.  If you do not get the popup, something didnt work as expected.  
+Make sure that it now shows your modified "Support" profile.  In our example that is filament 2, now our PETG Support, where I put the top red arrow.  Then select that same filament for the support raft interface, the lower red arrow.   If everything has worked correctly you will get the popup and be able to select yes.  If you do not get the popup, something didn't work as expected.  
 
-tower material.png
+![Prime tower material setting](photos/tower%20material.png)
 
-The next step is making sure the prime tower doesnt come apart while you are printing.  Youll need to set the prime tower to do the walls in your primary material so it still has structure.  In the photo above you can see my red arrow.  
+The next step is making sure the prime tower doesn't come apart while you are printing.  You'll need to set the prime tower to do the walls in your primary material so it still has structure.  In the photo above you can see my red arrow.  
 
-https://github.com/TheJoe1990/Tuning-Instructions/blob/main/photos/Support%20Speeds.png
+![Support speed settings](photos/Support%20Speeds.png)
 
 We found the supports were being thrown off of the build sheet so we halved the speed the supports were printed at.  You may need to tune these further, and if your supports are nice and short you may not need to touch this setting at all, but this worked for us.  
 
-And here is our final result!  Im sure that this can be tuned to be even better, but Im pretty jazzed at where we arrived for now. Mom did have to scrape some of the PETG off the model with her fingernail, but it all came away cleanly leaving no sags or rough areas.  
+And here is our final result!  I'm sure that this can be tuned to be even better, but I'm pretty jazzed at where we arrived for now. Mom did have to scrape some of the PETG off the model with her fingernail, but it all came away cleanly leaving no sags or rough areas.  
 
 Happy printing!
 
-https://github.com/TheJoe1990/Tuning-Instructions/blob/main/photos/frontside.jpg
-https://github.com/TheJoe1990/Tuning-Instructions/blob/main/photos/backside.jpg
-https://github.com/TheJoe1990/Tuning-Instructions/blob/main/photos/final%20result.jpg
+![Front side of finished print](photos/frontside.jpg)
+![Back side of finished print](photos/backside.jpg)
+![Final result](photos/final%20result.jpg)
