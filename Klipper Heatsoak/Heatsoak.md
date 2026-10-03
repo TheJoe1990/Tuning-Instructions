@@ -17,6 +17,10 @@ The only real gotcha: you have to double check your printer's actual renamed pau
 
 This started life as [Contomo's heatsoak macro](https://github.com/Contomo/klipper-questionable-macros/blob/main/macro-examples/interruptable_heatsoak_print_start.cfg) — big thanks to him for the original work. We've since built on it with a number of significant changes and additions.
 
+### Example configs
+Real setups for specific printers, as worked examples of hooking this into a printer's existing macros without breaking them:
+- [Snapmaker U1](Examples/Snapmaker%20U1/README.md): stock Snapmaker firmware. Runs the U1's per-print flow calibration during the soak, then parks a head over the middle of the bed with the fans circulating the chamber air.
+
 ### To do / future ideas
 - Port over the SV08 toolchanger's per-tool preheat logic (heat every tool the slicer requested during the soak, not just the active one).
 - Delay the countdown start until the bed actually reaches target temp, instead of starting the clock as soon as the soak begins.
