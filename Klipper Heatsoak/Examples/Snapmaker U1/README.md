@@ -61,7 +61,7 @@ The soak time settings (`soak_sec_per_print_min`, `soak_min_seconds`, `soak_max_
 
 ## Things to know
 
-- **Use Fluidd for the popup.** The touchscreen just shows the print as paused. Pressing **Resume** on the touchscreen (or in Fluidd) during the soak **skips** the rest of the soak and starts the print normally. Cancel from anywhere cancels cleanly.
+- **Use Fluidd for the popup.** The touchscreen just shows the print as paused. Pressing **Resume** on the touchscreen (or in Fluidd) during the soak **skips** the rest of the soak and starts the print normally. You'll see one red `Resume pressed during the soak` line in the console. That's expected: it's how the soak stops Snapmaker's resume from running. Cancel from anywhere cancels cleanly.
 - **The bed doesn't move during the soak.** The U1 homes Z by touching the nozzle to the bed, which Snapmaker only does after cleaning the nozzle. The soak only homes X/Y, so the bed stays wherever it was. The head still parks over the middle and the fans still move the air around.
 - **Why it doesn't use the normal PAUSE:** on the U1, `PAUSE` parks over the purge chute, drops every nozzle to 40°C and turns the fans off. The soak uses the bare `PAUSE_BASE` instead, which only stops the file.
 - **Firmware updates.** Two Snapmaker macros are copied into this file: the `PRINT_START` body (now `_U1_STOCK_PRINT_START`) and `CANCEL_PRINT` (plus one teardown line). If a firmware update changes those in Snapmaker's `fluidd.cfg`, copy the new versions over. An update that resets `printer.cfg` will also drop the include line, so check it's still there after updating.
