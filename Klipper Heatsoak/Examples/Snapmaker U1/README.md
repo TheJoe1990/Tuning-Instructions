@@ -9,7 +9,7 @@ An example of the [universal heatsoak](../../Heatsoak.md) set up for the Snapmak
 When a print starts:
 
 1. Snapmaker's normal `PRINT_START` stuff runs first, same as always.
-2. The print pauses right there, before any of Snapmaker's start sequence. You get the heatsoak popup in Fluidd (Skip / +/- minutes / Cancel), and the bed heats up.
+2. The print pauses right there, before any of Snapmaker's start sequence. You get the heatsoak popup in Fluidd (Skip Heatsoak / +/- minutes / Cancel Print), and the bed heats up.
 3. Once the bed is at temperature, the soak countdown starts. While it runs:
    - **Flow calibration** runs now instead of later: the same per-print calibration the U1 already does, just moved into the soak. Each head gets loaded and calibrated in the same order Snapmaker does it.
    - Then the print's first tool gets picked up and **parked over the middle of the bed**. Its part cooling fan and the chamber (cavity) fan turn on to move the hot air around the chamber. If the nozzle is still hot from calibrating, it cools down over the purge chute first, so nothing drips onto the plate.
