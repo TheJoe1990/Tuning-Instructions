@@ -35,8 +35,12 @@ This started life as [Contomo's heatsoak macro](https://github.com/Contomo/klipp
 Real setups for specific printers, as worked examples of hooking this into a printer's existing macros without breaking them:
 - [Snapmaker U1](Examples/Snapmaker%20U1/README.md): stock Snapmaker firmware. Runs the U1's per-print flow calibration during the soak, then parks a head over the middle of the bed with the fans circulating the chamber air.
 
-### To do / future ideas
-- Port over the SV08 toolchanger's per-tool preheat logic (heat every tool the slicer requested during the soak, not just the active one).
-- Delay the countdown start until the bed actually reaches target temp, instead of starting the clock as soon as the soak begins.
-- Maybe bring back a build-plate layout visualization (Contomo's original renders an SVG of part outlines on the bed; ours currently just reports largest part area as a number).
+### Done (from the old to-do list)
+- Countdown now waits until the bed actually reaches target temp; the soak clock doesn't start while it's still heating.
+- Build-plate layout: an SVG of every part's outline is sent to the Mainsail/Fluidd console when the soak starts (the popup itself can't show pictures).
+- Per-tool work during the soak: `PRINTER_HEATSOAK_PARK` is now a general "tasks to run during the heatsoak" hook. The SV08 toolchanger uses it for tool calibration and the Snapmaker U1 for flow calibration.
 
+### To do / future ideas
+- Keep the popup updating while a long soak task runs. Right now a calibration holds Klipper's command queue, so the popup freezes until it finishes. That would mean breaking tasks into smaller steps.
+- Split the file into a shared engine file plus a small per-printer settings file, so updating is just replacing one file instead of re-merging your edits.
+- More example configs (SV08 toolchanger, RatOS, Voron 0 with Happy Hare, Sovol, Neptune 4 Max).
