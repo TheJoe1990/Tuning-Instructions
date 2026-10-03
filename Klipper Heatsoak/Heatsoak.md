@@ -7,13 +7,27 @@ Quick summary of what it does:
 - Allows actions to be taken while the heatsoak timer is running, such as calibrating nozzle offsets on a Stealthchanger setup.
 - Can wait on a chamber sensor if you have one, and skip the soak if the chamber's already warm enough.
 - Optionally runs your fans during the soak to ensure the entire chamber heats.
-- Shows a popup with Skip/Adjust/Cancel buttons in Mainsail/Fluidd/KlipperScreen.
-- Actually pauses the print queue for real during the soak (not just a delay), so cancel/resume behave properly.
+- Shows a popup with Skip Heatsoak / +/- minutes / Cancel Print buttons in Mainsail/Fluidd/KlipperScreen.
+- Actually pauses the print queue for real during the soak (not just a delay), so cancel/resume behave properly. See ["Paused" means heatsoaking](#paused-means-heatsoaking) below.
+- Pressing Resume during the soak skips the rest of the soak (same as the Skip Heatsoak button) instead of starting the print on an unsoaked bed.
 - Forces a re-home/re-level/mesh after the soak, to ensure repeatable sensor-less homing values and Z sensor behavior, especially useful with inductive probes that are temp sensitive.
 
 ![Heatsoak popup](photos/Heatsoak%20Popup.png)
 
-The only real gotcha: you have to double check your printer's actual renamed pause/resume macro names (`rename_existing` on your `[gcode_macro PAUSE]`/`[gcode_macro RESUME]`) before deploying, or the soak will run with no real pause protection and fail silently. Details are in the file.
+### "Paused" means heatsoaking
+The soak works by really pausing the print right at the start (that's what stops the rest of the file from running until the printer is ready). So for the whole soak, **your printer's screen and Mainsail/Fluidd will say the print is Paused. That's normal: Paused = heatsoaking.**
+
+The printer is **not idle** while it says Paused. During the soak it keeps working: heating the bed, holding the nozzle at its standby temp, running fans, and running whatever soak tasks your printer has (parking, tool calibration, flow calibration, etc.). Don't be surprised if things move while the status says Paused.
+
+What the buttons do during the soak:
+- **Resume** (on the printer's screen or in Mainsail/Fluidd) = **Skip Heatsoak**. It ends the soak early and starts the print sequence properly (re-home, level, mesh). It does not jump straight into printing. On most printers the console also shows one red `Resume pressed during the soak` line when you do this. That's expected.
+- **Skip Heatsoak** (popup) = same as Resume.
+- **+/- minutes** (popup) = make the soak longer or shorter.
+- **Cancel Print** (popup), or your normal cancel button = cancel the whole print. The soak shuts itself down cleanly.
+
+While a long soak task is running (e.g. a calibration), the popup can't refresh until that task finishes. It catches up right after; nothing is stuck.
+
+The real setup gotcha: this file never overrides your printer's own `CANCEL_PRINT` or `RESUME` (Klipper would silently merge over them). Instead you add one line to each: `_HEATSOAK_CANCEL_TEARDOWN` at the top of your `CANCEL_PRINT`, and `_HEATSOAK_RESUME_CHECK` at the top of your `RESUME`. Mainsail/Fluidd client.cfg and Happy Hare have variable hooks for both. After a restart the console shows a red `Heatsoak:` error if either hookup is missing. The pause/resume macro names are found automatically. Details are in the file.
 
 This started life as [Contomo's heatsoak macro](https://github.com/Contomo/klipper-questionable-macros/blob/main/macro-examples/interruptable_heatsoak_print_start.cfg) — big thanks to him for the original work. We've since built on it with a number of significant changes and additions.
 
