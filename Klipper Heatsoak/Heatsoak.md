@@ -34,6 +34,7 @@ This started life as [Contomo's heatsoak macro](https://github.com/Contomo/klipp
 ### Example configs
 Real setups for specific printers, as worked examples of hooking this into a printer's existing macros without breaking them:
 - [Snapmaker U1](Examples/Snapmaker%20U1/README.md): stock Snapmaker firmware. Runs the U1's per-print flow calibration during the soak, then parks a head over the middle of the bed with the fans circulating the chamber air.
+- [Sovol SV08 Max](Examples/Sovol%20SV08%20Max/README.md): stock Sovol firmware. Hooks into Sovol's `START_PRINT` without touching the slicer profile, with the part fans circulating the enclosure air during the soak.
 
 ### Done (from the old to-do list)
 - Countdown now waits until the bed actually reaches target temp; the soak clock doesn't start while it's still heating.
